@@ -202,7 +202,7 @@ dfnol = pd.DataFrame(list(zip(negaranol, produksinol)), columns=['kode_negara', 
 col5a.dataframe(dfnol)
 
 col5b.subheader("Summary Kumulatif")
-T2 = col5b.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990)
+T2 = col5b.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990, key=int)
 dftahun2 = df_csv_clean.loc[df_csv_clean['tahun'] == T2].sort_values(by=['produksi'], ascending=False)
 
 df_tahun_clean = dftahun2.set_index("produksi")
