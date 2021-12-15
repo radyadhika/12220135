@@ -73,11 +73,6 @@ B1 = st.sidebar.number_input("Banyak Negara", min_value=1, max_value=None, value
 n_tampil = st.sidebar.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
 ############### sidebar ###############
 
-col3opt1, col3opt2 = st.columns((1, 1))
-col5a, col5b = st.columns(2)
-
-left_col, mid_col, right_col = st.columns(3)
-
 ############### first column ###############
 st.subheader("Tabel representasi data")
 st.dataframe(df_csv_clean.head(n_tampil))
@@ -116,6 +111,8 @@ plt.grid(axis='y')
 
 st.pyplot(fig)
 ############### second column ###############
+
+col3opt1, col3opt2 = st.columns(2)
 
 ############### third column ###############
 st.subheader("Total penumpang perbulan")
@@ -165,6 +162,8 @@ plt.grid(axis='y')
 
 st.pyplot(fig)
 ############### fourth column ###############
+
+col5a, col5b = st.columns(2)
 
 ############### fifth column ###############
 col5a.subheader("Summary Tahun")
