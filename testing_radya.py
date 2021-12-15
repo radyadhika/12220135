@@ -65,14 +65,14 @@ st.markdown("*Sumber data berasal dari [Jakarta Open Data](https://data.jakarta.
 ############### sidebar ###############
 st.sidebar.title("Pengaturan")
 st.sidebar.subheader("Pengaturan Konfigurasi Grafik")
-width = st.sidebar.slider("plot width", 1, 25, 13)
-height = st.sidebar.slider("plot height", 1, 25, 5)
+width = st.sidebar.slider("Lebar Grafik", 1, 25, 13)
+height = st.sidebar.slider("Tinggi Grafik", 1, 25, 5)
 ############### sidebar ###############
 
 col1a, col1b = st.columns(2)
 
 ############### first column ###############
-st.subheader("Tabel representasi data")
+st.subheader("Tabel Representasi Data")
 n_tampil = col1b.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
 col1a.dataframe(df_csv_clean.head(n_tampil))
 ############### first column ###############
