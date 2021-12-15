@@ -67,6 +67,8 @@ st.sidebar.title("Pengaturan")
 
 ## User inputs on the control panel
 st.sidebar.subheader("Pengaturan konfigurasi tampilan")
+width = st.sidebar.slider("plot width", 1, 25, 3)
+height = st.sidebar.slider("plot height", 1, 25, 1)
 
 n_tampil = st.sidebar.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
 ############### sidebar ###############
@@ -99,7 +101,7 @@ for i in range(len(list(df_csv_clean['kode_negara']))):
         grafik1_produksi.append(list(df_csv_clean['produksi'])[i])
 
 
-fig, ax = plt.subplots(figsize=(8,5))
+fig, ax = plt.subplots(figsize=(width, height))
 plt.plot(grafik1_tahun, grafik1_produksi)
 plt.title('Grafik Produksi Negara ' + N, fontsize = 14)
 plt.legend([N])
@@ -124,7 +126,7 @@ dftahunbanyak = dftahun[:B1]
 negara2 = dftahunbanyak['kode_negara']
 produksi2 = dftahunbanyak['produksi']
 
-fig, ax = plt.subplots(figsize=(8,5))
+fig, ax = plt.subplots(figsize=(width, height))
 plt.bar(negara2, produksi2)
 plt.title('Grafik ' + str(B1) + ' Negara Produksi Terbesar pada Tahun ' + str(T), fontsize = 13)
 plt.xlabel('Negara', fontsize = 12)
@@ -154,7 +156,7 @@ df3 = df3 [:B2]
 negara3 = df3['kode_negara']
 produksikumul3 = df3['produksi_kumulatif']
 
-fig, ax = plt.subplots(figsize=(9,5))
+fig, ax = plt.subplots(figsize=(width, height))
 plt.bar(negara3, produksikumul3)
 plt.title('Grafik ' + str(B2) + ' Negara Produksi Kumulatif Terbesar', fontsize = 13)
 plt.xlabel('Negara', fontsize = 12)
