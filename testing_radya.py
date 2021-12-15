@@ -77,7 +77,7 @@ st.dataframe(df_csv_clean.head(n_tampil))
 ############### first column ###############
 
 ############### second column ###############
-st.subheader("Jenis transportasi")
+st.subheader("Grafik Negara")
 N = st.selectbox("Pilih Negara", listnama)
 
 for i in range(len(listnama)):
@@ -135,6 +135,8 @@ st.pyplot(fig)
 ############### third column ###############
 
 ############### fourth column ###############
+st.subheader("Grafik Kumulatif")
+
 B2 = st.number_input("Banyak Negara", min_value=1, max_value=None, value=10)
 
 jumlah_produksi_kumulatif = []
