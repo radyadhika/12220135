@@ -199,7 +199,7 @@ col5a.markdown("\n**Negara dengan Produksi Kumulatif Sama Dengan Nol:**")
 negaranol = df_summary_bersih.iloc[len(df_summary_clean):len(dfsummary)]['kode_negara']
 produksinol = df_summary_bersih.iloc[len(df_summary_clean):len(dfsummary)]['produksi_kumulatif']
 dfnol = pd.DataFrame(list(zip(negaranol, produksinol)), columns=['kode_negara', 'produksi_kumulatif'])
-col5a.dataframe(dfnol.head)
+col5a.dataframe(dfnol)
 
 col5b.subheader("Summary Kumulatif")
 T2 = col5b.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990)
@@ -222,5 +222,5 @@ print("\nNegara dengan Produksi Minyak Sama Dengan Nol pada Tahun " + str(T2) + 
 negaranol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['kode_negara']
 produksinol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['produksi']
 dfnol2 = pd.DataFrame(list(zip(negaranol2, produksinol2)), columns=['kode_negara', 'produksi'])
-col5b.dataframe(dfnol2.head)
+col5b.dataframe(dfnol2)
 ############### fifth column ###############
