@@ -66,9 +66,9 @@ st.markdown("*Sumber data berasal dari [Jakarta Open Data](https://data.jakarta.
 st.sidebar.title("Pengaturan")
 
 ## User inputs on the control panel
-st.sidebar.subheader("Pengaturan konfigurasi tampilan")
-width = st.sidebar.slider("plot width", 1, 25, 3)
-height = st.sidebar.slider("plot height", 1, 25, 1)
+st.sidebar.subheader("Pengaturan Konfigurasi Grafik")
+width = st.sidebar.slider("plot width", 1, 25, 13)
+height = st.sidebar.slider("plot height", 1, 25, 5)
 
 n_tampil = st.sidebar.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
 ############### sidebar ###############
