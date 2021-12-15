@@ -67,8 +67,6 @@ st.sidebar.title("Pengaturan")
 
 ## User inputs on the control panel
 st.sidebar.subheader("Pengaturan konfigurasi tampilan")
-T = st.sidebar.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990)
-B1 = st.sidebar.number_input("Banyak Negara", min_value=1, max_value=None, value=10)
 
 n_tampil = st.sidebar.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
 ############### sidebar ###############
