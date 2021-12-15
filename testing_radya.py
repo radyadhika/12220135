@@ -101,7 +101,7 @@ for i in range(len(list(df_csv_clean['kode_negara']))):
         grafik1_tahun.append(list(df_csv_clean['tahun'])[i])
         grafik1_produksi.append(list(df_csv_clean['produksi'])[i])
 
-fig, ax = plt.subplots(figsize=(8,5))
+fig, ax = plt.subplots(figsize=(20,10))
 plt.plot(grafik1_tahun, grafik1_produksi)
 plt.title('Grafik Produksi Negara ' + N, fontsize = 14)
 plt.legend([N])
