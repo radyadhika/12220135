@@ -137,7 +137,7 @@ st.pyplot(fig)
 ############### fourth column ###############
 st.subheader("Grafik Kumulatif")
 
-B2 = st.number_input("Banyak Negara", min_value=1, max_value=None, value=10)
+B2 = st.number_input("Banyak Negara", min_value=1, max_value=None, value=10, key=int)
 
 jumlah_produksi_kumulatif = []
 # Menjumlahkan produksi minyak tiap negara dan memasukkannya ke list_sum
