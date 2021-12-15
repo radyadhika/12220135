@@ -214,6 +214,7 @@ df_tahun_clean = df_tahun_clean.drop([0])
 df_tahun_clean.reset_index(drop=False, inplace=True)
 
 print("Negara dengan Produksi Minyak Terbesar pada Tahun " + str(T2) + ":")
+col5b.markdown("**Negara dengan Produksi Minyak Terbesar pada Tahun** " + str(T2) + "**:**")
 print(dftahun2.iloc[0]['kode_negara'])
 print(dftahun2.iloc[0]['produksi'])
 
