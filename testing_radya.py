@@ -221,14 +221,14 @@ print(dftahun2.iloc[0]['produksi'])
 col5b.markdown(dftahun2.iloc[0]['produksi'])
 
 print("\nNegara dengan Produksi Minyak Terkecil pada Tahun " + str(T2) + ":")
-col5b.markdown(\n**Negara dengan Produksi Minyak Terkecil pada Tahun** " + str(T2) + "**:**")
+col5b.markdown("\n**Negara dengan Produksi Minyak Terkecil pada Tahun** " + str(T2) + "**:**")
 print(dftahun2.iloc[len(df_tahun_clean)-1]['kode_negara'])
 col5b.markdown(dftahun2.iloc[len(df_tahun_clean)-1]['kode_negara'])
 print(dftahun2.iloc[len(df_tahun_clean)-1]['produksi'])
 col5b.markdown(dftahun2.iloc[len(df_tahun_clean)-1]['produksi'])
 
 print("\nNegara dengan Produksi Minyak Sama Dengan Nol pada Tahun " + str(T2) + ":")
-col5b.markdown(\n**Negara dengan Produksi Minyak Sama Dengan Nol pada Tahun** " + str(T2) + "**:**")
+col5b.markdown("\n**Negara dengan Produksi Minyak Sama Dengan Nol pada Tahun** " + str(T2) + "**:**")
 negaranol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['kode_negara']
 produksinol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['produksi']
 dfnol2 = pd.DataFrame(list(zip(negaranol2, produksinol2)), columns=['kode_negara', 'produksi'])
