@@ -1,9 +1,8 @@
-"""
-Aplikasi Streamlit untuk menggambarkan statistik penumpang TransJakarta
-
-Sumber data berasal dari Jakarta Open Data
-Referensi API Streamlit: https://docs.streamlit.io/library/api-reference
-"""
+'''
+Nama: Radya Evandhika Novaldi
+NIM: 12220135
+Topik: UAS Pemrograman Komputer
+'''
 
 # import packages
 import pandas as pd
@@ -56,6 +55,7 @@ for i in range(len(listkodecsv)):
             listsubregion.append(list(df_json['sub-region'])[j])
 
 df_json_clean = pd.DataFrame(list(zip(listnama, listkodecsv, listkodenegara, listregion, listsubregion)), columns=['NamaNegara', 'ISO3', 'KodeNegara', 'Region', 'SubRegion'])
+
 ############### title ###############
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command called
 st.title("UAS 12220135")
@@ -64,18 +64,17 @@ st.markdown("*Sumber data berasal dari [Jakarta Open Data](https://data.jakarta.
 
 ############### sidebar ###############
 st.sidebar.title("Pengaturan")
-
-## User inputs on the control panel
 st.sidebar.subheader("Pengaturan Konfigurasi Grafik")
 width = st.sidebar.slider("plot width", 1, 25, 13)
 height = st.sidebar.slider("plot height", 1, 25, 5)
-
-n_tampil = st.sidebar.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
 ############### sidebar ###############
+
+col1a, col1b = st.columns(2)
 
 ############### first column ###############
 st.subheader("Tabel representasi data")
-st.dataframe(df_csv_clean.head(n_tampil))
+n_tampil = col1b.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
+col1a.dataframe(df_csv_clean.head(n_tampil))
 ############### first column ###############
 
 ############### second column ###############
