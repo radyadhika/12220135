@@ -126,7 +126,7 @@ col3opt1, col3opt2 = st.columns(2)
 ############### third column ###############
 st.subheader("Grafik Jumlah Produksi Minyak Terbesar Pada Tahun Tertentu")
 
-T = col3opt1.number_input("Pilih Tahun", min_value=1970, max_value=2015, value=1990)
+T = col3opt1.number_input("Pilih Tahun", min_value=1971, max_value=2015, value=1990)
 B1 = col3opt2.number_input("Pilih Banyaknya Negara", min_value=1, max_value=None, value=10)
 
 dftahun = df_csv_clean.loc[df_csv_clean['tahun'] == T].sort_values(by=['produksi'], ascending=False)
