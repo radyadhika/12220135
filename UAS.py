@@ -77,9 +77,9 @@ height = st.sidebar.slider("Tinggi Grafik", 1, 25, 5)
 col1a, col1b = st.columns(2)
 
 ############### first column ###############
-st.subheader("Tabel Representasi Data")
-n_tampil = col1b.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
+col1a.subheader("Tabel Representasi Data")
 col1a.dataframe(df_csv_clean.head(n_tampil))
+n_tampil = col1b.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
 ############### first column ###############
 
 ############### second column ###############
