@@ -175,7 +175,14 @@ col5a, col5b = st.columns(2)
 
 ############### fifth column ###############
 col5a.subheader("Summary Tahun")
-dfsummary = pd.DataFrame(list(zip(listkodecsv, jumlah_produksi_kumulatif)), columns=['kode_negara', 'produksi_kumulatif']).sort_values(by=['produksi_kumulatif'], ascending=False)
+dfsummary = pd.DataFrame(list(zip(listkodecsv, jumlah_produksi_kumulatif)), columns=['kode_negara', 'produksi_kumulatif'])
+
+dfsummary['NamaNegara'] = list(df_json_clean['NamaNegara'])
+dfsummary['Region'] = list(df_json_clean['Region'])
+dfsummary['Sub-region'] = list(df_json_clean['SubRegion'])
+dfsummary['KodeNegara'] = list(df_json_clean['ISO3'])
+
+dfsummary = dfsummary[['NamaNegara', 'KodeNegara', 'Region', 'Sub-region', 'produksi_kumulatif']].sort_values(by=['produksi_kumulatif'], ascending=False)
 
 df_summary_clean = dfsummary.set_index("produksi_kumulatif")
 df_summary_clean.head()
@@ -184,23 +191,38 @@ df_summary_clean.reset_index(drop=False, inplace=True)
 
 print("Negara dengan Produksi Kumulatif Terbesar:")
 col5a.markdown("**Negara dengan Produksi Kumulatif Terbesar:**")
-print(df_summary_clean.iloc[0]['kode_negara'])
-col5a.markdown(df_summary_clean.iloc[0]['kode_negara'])
+print(df_summary_clean.iloc[0]['NamaNegara'])
+col5a.markdown(df_summary_clean.iloc[0]['NamaNegara'])
+print(df_summary_clean.iloc[0]['KodeNegara'])
+col5a.markdown(df_summary_clean.iloc[0]['KodeNegara'])
+print(df_summary_clean.iloc[0]['Region'])
+col5a.markdown(df_summary_clean.iloc[0]['Region'])
+print(df_summary_clean.iloc[0]['Sub-region'])
+col5a.markdown(df_summary_clean.iloc[0]['Sub-region'])
 print(df_summary_clean.iloc[0]['produksi_kumulatif'])
 col5a.markdown(df_summary_clean.iloc[0]['produksi_kumulatif'])
 
 print("\nNegara dengan Produksi Kumulatif Terkecil:")
-col5a.markdown("\n**Negara dengan Produksi Kumulatif Terkecil:**")
-print(df_summary_clean.iloc[len(df_summary_clean)-1]['kode_negara'])
-col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['kode_negara'])
+col5a.markdown("**Negara dengan Produksi Kumulatif Terkecil:**")
+print(df_summary_clean.iloc[len(df_summary_clean)-1]['NamaNegara'])
+col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['NamaNegara'])
+print(df_summary_clean.iloc[len(df_summary_clean)-1]['KodeNegara'])
+col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['KodeNegara'])
+print(df_summary_clean.iloc[len(df_summary_clean)-1]['Region'])
+col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['Region'])
+print(df_summary_clean.iloc[len(df_summary_clean)-1]['Sub-region'])
+col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['Sub-region'])
 print(df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif'])
 col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif'])
 
 print("\nNegara dengan Produksi Kumulatif Sama Dengan Nol:")
-col5a.markdown("\n**Negara dengan Produksi Kumulatif Sama Dengan Nol:**")
-negaranol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['kode_negara']
+col5a.markdown("**Negara dengan Produksi Kumulatif Sama Dengan Nol:**")
+namanol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['NamaNegara']
+negaranol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['KodeNegara']
+regionnol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['Region']
+subregionnol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['Sub-region']
 produksinol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['produksi_kumulatif']
-dfnol = pd.DataFrame(list(zip(negaranol, produksinol)), columns=['kode_negara', 'produksi_kumulatif'])
+dfnol = pd.DataFrame(list(zip(namanol, negaranol, regionnol, subregionnol, produksinol)), columns=['NamaNegara', 'KodeNegara', 'Region', 'SubRegion', 'produksi_kumulatif'])
 col5a.dataframe(dfnol)
 
 col5b.subheader("Summary Kumulatif")
