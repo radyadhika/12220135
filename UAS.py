@@ -233,44 +233,27 @@ col5a.dataframe(dfnol)
 
 col5b.subheader("Summary Kumulatif")
 T2 = col5b.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990, key=int)
-dftahun2 = df_csv_clean.loc[df_csv_clean['tahun'] == T2]
-
-dftahun2['NamaNegara'] = list(df_json_clean['NamaNegara'])
-dftahun2['Region'] = list(df_json_clean['Region'])
-dftahun2['Sub-region'] = list(df_json_clean['SubRegion'])
-dftahun2['KodeNegara'] = list(df_json_clean['ISO3'])
-
-dftahun2 = dftahun2[['NamaNegara', 'KodeNegara', 'Region', 'Sub-region', 'produksi']].sort_values(by=['produksi'], ascending=False)
-
+dftahun2 = df_csv_clean.loc[df_csv_clean['tahun'] == T2].sort_values(by=['produksi'], ascending=False)
 df_tahun_clean = dftahun2.set_index("produksi")
 df_tahun_clean.head()
 df_tahun_clean = df_tahun_clean.drop([0])
 df_tahun_clean.reset_index(drop=False, inplace=True)
-
 print("Negara dengan Produksi Minyak Terbesar pada Tahun " + str(T2) + ":")
 col5b.markdown("**Negara dengan Produksi Minyak Terbesar pada Tahun** " + str(T2) + "**:**")
-print(dftahun2.iloc[0]['NamaNegara'])
-col5b.markdown(dftahun2.iloc[0]['NamaNegara'])
-print(dftahun2.iloc[0]['KodeNegara'])
-col5b.markdown(dftahun2.iloc[0]['KodeNegara'])
-print(dftahun2.iloc[0]['produksi'])
-col5b.markdown(dftahun2.iloc[0]['Region'])
-print(df_tahun_clean.iloc[0]['Region'])
-col5b.markdown(df_tahun_clean.iloc[0]['Sub-region'])
+print(dftahun2.iloc[0]['kode_negara'])
+col5b.markdown(dftahun2.iloc[0]['kode_negara'])
 print(dftahun2.iloc[0]['produksi'])
 col5b.markdown(dftahun2.iloc[0]['produksi'])
-
 print("\nNegara dengan Produksi Minyak Terkecil pada Tahun " + str(T2) + ":")
 col5b.markdown("\n**Negara dengan Produksi Minyak Terkecil pada Tahun** " + str(T2) + "**:**")
-print(dftahun2.iloc[len(df_tahun_clean)-1]['KodeNegara'])
-col5b.markdown(dftahun2.iloc[len(df_tahun_clean)-1]['KodeNegara'])
+print(dftahun2.iloc[len(df_tahun_clean)-1]['kode_negara'])
+col5b.markdown(dftahun2.iloc[len(df_tahun_clean)-1]['kode_negara'])
 print(dftahun2.iloc[len(df_tahun_clean)-1]['produksi'])
 col5b.markdown(dftahun2.iloc[len(df_tahun_clean)-1]['produksi'])
-
 print("\nNegara dengan Produksi Minyak Sama Dengan Nol pada Tahun " + str(T2) + ":")
 col5b.markdown("\n**Negara dengan Produksi Minyak Sama Dengan Nol pada Tahun** " + str(T2) + "**:**")
-negaranol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['KodeNegara']
+negaranol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['kode_negara']
 produksinol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['produksi']
-dfnol2 = pd.DataFrame(list(zip(negaranol2, produksinol2)), columns=['KodeNegara', 'produksi'])
+dfnol2 = pd.DataFrame(list(zip(negaranol2, produksinol2)), columns=['kode_negara', 'produksi'])
 col5b.dataframe(dfnol2)
 ############### fifth column ###############
