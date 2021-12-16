@@ -22,7 +22,9 @@ df_csv_clean.head()
 df_csv_clean = df_csv_clean.drop(["WLD","G20","OECD","OEU","EU28"])
 df_csv_clean.reset_index(drop=False, inplace=True)
 
+
 listkodecsv = []
+listsampah = []
 
 for i in list(df['kode_negara']):
     if i not in listkodecsv:
@@ -31,15 +33,18 @@ for i in list(df['kode_negara']):
 namajson = "kode_negara_lengkap.json"
 openjson = open(namajson)
 loadjson = json.load(openjson)
+df_json = pd.read_json(namajson)
 
 list_kode_bersih = []
-for i in loadjson :
-    A = i.get('alpha-3')
-    list_kode_bersih.append(A)
-    if A not in listkodecsv:
-        list_kode_bersih.remove(A)
 
-df_json = pd.read_json(namajson)
+for i in listkodecsv:
+    if i not in list(df_json['alpha-3']):
+        listsampah.append(i)
+
+for i in listsampah:
+    df = df[df.kode_negara != i]
+    if i in listkodecsv:
+        listkodecsv.remove(i)
 
 listnama = []
 listkodenegara = []
