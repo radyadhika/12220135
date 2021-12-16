@@ -204,7 +204,7 @@ col5a.markdown("Region: " + df_summary_clean.iloc[0]['Region'])
 print(df_summary_clean.iloc[0]['Sub-region'])
 col5a.markdown("Sub-region: " + df_summary_clean.iloc[0]['Sub-region'])
 print(df_summary_clean.iloc[0]['produksi_kumulatif'])
-col5a.markdown(df_summary_clean.iloc[0]['produksi_kumulatif'] + " TMT")
+col5a.markdown(df_summary_clean.iloc[0]['produksi_kumulatif'], " TMT")
 
 print("\nNegara dengan Produksi Kumulatif Terkecil:")
 col5a.markdown("**Negara dengan Produksi Kumulatif Terkecil:**")
