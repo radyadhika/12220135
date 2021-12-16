@@ -142,7 +142,7 @@ plt.grid(axis='y')
 st.pyplot(fig)
 ############### third column ###############
 
- st.write("--")
+st.write("--")
 
 ############### fourth column ###############
 st.subheader("Grafik Kumulatif")
