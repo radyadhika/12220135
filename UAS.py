@@ -122,8 +122,8 @@ col3opt1, col3opt2 = st.columns(2)
 ############### third column ###############
 st.subheader("Grafik Jumlah Produksi Minyak Terbesar Pada Tahun Tertentu")
 
-T = col3opt1.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990)
-B1 = col3opt2.number_input("Banyak Negara", min_value=1, max_value=None, value=10)
+T = col3opt1.number_input("Pilih Tahun", min_value=1970, max_value=2015, value=1990)
+B1 = col3opt2.number_input("Pilih Banyaknya Negara", min_value=1, max_value=None, value=10)
 
 dftahun = df_csv_clean.loc[df_csv_clean['tahun'] == T].sort_values(by=['produksi'], ascending=False)
 dftahunbanyak = dftahun[:B1]
@@ -196,28 +196,28 @@ df_summary_clean.reset_index(drop=False, inplace=True)
 print("Negara dengan Produksi Kumulatif Terbesar:")
 col5a.markdown("**Negara dengan Produksi Kumulatif Terbesar:**")
 print(df_summary_clean.iloc[0]['NamaNegara'])
-col5a.markdown(df_summary_clean.iloc[0]['NamaNegara'])
+col5a.markdown("Nama Negara: " + df_summary_clean.iloc[0]['NamaNegara'])
 print(df_summary_clean.iloc[0]['KodeNegara'])
-col5a.markdown(df_summary_clean.iloc[0]['KodeNegara'])
+col5a.markdown("Kode Negara: " + df_summary_clean.iloc[0]['KodeNegara'])
 print(df_summary_clean.iloc[0]['Region'])
-col5a.markdown(df_summary_clean.iloc[0]['Region'])
+col5a.markdown("Region: " + df_summary_clean.iloc[0]['Region'])
 print(df_summary_clean.iloc[0]['Sub-region'])
-col5a.markdown(df_summary_clean.iloc[0]['Sub-region'])
+col5a.markdown("Sub-region: " + df_summary_clean.iloc[0]['Sub-region'])
 print(df_summary_clean.iloc[0]['produksi_kumulatif'])
-col5a.markdown(df_summary_clean.iloc[0]['produksi_kumulatif'])
+col5a.markdown("Produksi Kumulatif: " + df_summary_clean.iloc[0]['produksi_kumulatif'] + " TMT")
 
 print("\nNegara dengan Produksi Kumulatif Terkecil:")
 col5a.markdown("**Negara dengan Produksi Kumulatif Terkecil:**")
 print(df_summary_clean.iloc[len(df_summary_clean)-1]['NamaNegara'])
-col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['NamaNegara'])
+col5a.markdown("Nama Negara: " + df_summary_clean.iloc[len(df_summary_clean)-1]['NamaNegara'])
 print(df_summary_clean.iloc[len(df_summary_clean)-1]['KodeNegara'])
-col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['KodeNegara'])
+col5a.markdown("Kode Negara: " + df_summary_clean.iloc[len(df_summary_clean)-1]['KodeNegara'])
 print(df_summary_clean.iloc[len(df_summary_clean)-1]['Region'])
-col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['Region'])
+col5a.markdown("Region: " + df_summary_clean.iloc[len(df_summary_clean)-1]['Region'])
 print(df_summary_clean.iloc[len(df_summary_clean)-1]['Sub-region'])
-col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['Sub-region'])
+col5a.markdown("Sub-region: " + df_summary_clean.iloc[len(df_summary_clean)-1]['Sub-region'])
 print(df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif'])
-col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif'])
+col5a.markdown("Produksi Kumulatif: " + df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif'])
 
 print("\nNegara dengan Produksi Kumulatif Sama Dengan Nol:")
 col5a.markdown("**Negara dengan Produksi Kumulatif Sama Dengan Nol:**")
@@ -226,7 +226,7 @@ negaranol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['KodeNegara']
 regionnol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['Region']
 subregionnol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['Sub-region']
 produksinol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['produksi_kumulatif']
-dfnol = pd.DataFrame(list(zip(namanol, negaranol, regionnol, subregionnol, produksinol)), columns=['NamaNegara', 'KodeNegara', 'Region', 'SubRegion', 'produksi_kumulatif'])
+dfnol = pd.DataFrame(list(zip(namanol, negaranol, regionnol, subregionnol, produksinol)), columns=['Nama_Negara', 'Kode_Negara', 'Region', 'Sub-Region', 'Produksi_Kumulatif'])
 col5a.dataframe(dfnol)
 
 col5b.subheader("Summary Tahun Tertentu")
