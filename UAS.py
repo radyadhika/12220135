@@ -61,6 +61,21 @@ for i in range(len(listkodecsv)):
 
 df_json_clean = pd.DataFrame(list(zip(listnama, listkodecsv, listkodenegara, listregion, listsubregion)), columns=['NamaNegara', 'ISO3', 'KodeNegara', 'Region', 'SubRegion'])
 
+namanegara = []
+regionnegara = []
+subregionnegara = []
+
+for i in listkodecsvbanyak:
+    for j in range(len(df_json)) :
+        if i == df_json['alpha-3'][j] :
+            namanegara.append(df_json['name'][j])
+            regionnegara.append(df_json['region'][j])
+            subregionnegara.append(df_json['sub-region'][j])
+
+df_csv_clean['NamaNegara'] = namanegara
+df_csv_clean['Region'] = regionnegara
+df_csv_clean['SubRegion'] = subregionnegara
+
 ############### title ###############
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command called
 st.title("Informasi Seputar Data Produksi Minyak Mentah dari Berbagai Negara di Seluruh Dunia")
@@ -234,28 +249,50 @@ dfnol = pd.DataFrame(list(zip(namanol, negaranol, regionnol, subregionnol, produ
 col5a.dataframe(dfnol)
 
 col5b.subheader("Summary Tahun Tertentu")
-T2 = col5b.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990, key=int)
-dftahun2 = df_csv_clean.loc[df_csv_clean['tahun'] == T2].sort_values(by=['produksi'], ascending=False)
+T2 = col5b.number_input("Tahun Berapa", min_value=1971, max_value=2015, value=1990, key=int)
+dftahun2 = df_csv_clean.loc[df_csv_clean['tahun'] == T2]
+
+dftahun2 = dftahun2.sort_values(by=['produksi'], ascending=False)
+
+
 df_tahun_clean = dftahun2.set_index("produksi")
 df_tahun_clean.head()
 df_tahun_clean = df_tahun_clean.drop([0])
 df_tahun_clean.reset_index(drop=False, inplace=True)
+
 print("Negara dengan Produksi Minyak Terbesar pada Tahun " + str(T2) + ":")
 col5b.markdown("**Negara dengan Produksi Minyak Terbesar pada Tahun** " + str(T2) + "**:**")
-print(dftahun2.iloc[0]['kode_negara'])
-col5b.markdown(dftahun2.iloc[0]['kode_negara'])
-print(dftahun2.iloc[0]['produksi'])
-col5b.markdown(dftahun2.iloc[0]['produksi'])
+print(df_tahun_clean.iloc[0]['NamaNegara'])
+col5b.markdown(df_tahun_clean.iloc[0]['NamaNegara'])
+print(df_tahun_clean.iloc[0]['kode_negara'])
+col5b.markdown(df_tahun_clean.iloc[0]['kode_negara'])
+print(df_tahun_clean.iloc[0]['Region'])
+col5b.markdown(df_tahun_clean.iloc[0]['Region'])
+print(df_tahun_clean.iloc[0]['SubRegion'])
+col5b.markdown(df_tahun_clean.iloc[0]['SubRegion'])
+print(df_tahun_clean.iloc[0]['produksi'])
+col5b.markdown(df_tahun_clean.iloc[0]['produksi'])
+
 print("\nNegara dengan Produksi Minyak Terkecil pada Tahun " + str(T2) + ":")
-col5b.markdown("\n**Negara dengan Produksi Minyak Terkecil pada Tahun** " + str(T2) + "**:**")
-print(dftahun2.iloc[len(df_tahun_clean)-1]['kode_negara'])
-col5b.markdown(dftahun2.iloc[len(df_tahun_clean)-1]['kode_negara'])
-print(dftahun2.iloc[len(df_tahun_clean)-1]['produksi'])
-col5b.markdown(dftahun2.iloc[len(df_tahun_clean)-1]['produksi'])
+col5b.markdown("**Negara dengan Produksi Minyak Terkecil pada Tahun** " + str(T2) + "**:**")
+print(df_tahun_clean.iloc[len(df_tahun_clean)-1]['NamaNegara'])
+col5b.markdown(df_tahun_clean.iloc[len(df_tahun_clean)-1]['NamaNegara'])
+print(df_tahun_clean.iloc[len(df_tahun_clean)-1]['kode_negara'])
+col5b.markdown(df_tahun_clean.iloc[len(df_tahun_clean)-1]['kode_negara'])
+print(df_tahun_clean.iloc[len(df_tahun_clean)-1]['Region'])
+col5b.markdown(df_tahun_clean.iloc[len(df_tahun_clean)-1]['Region'])
+print(df_tahun_clean.iloc[len(df_tahun_clean)-1]['SubRegion'])
+col5b.markdown(df_tahun_clean.iloc[len(df_tahun_clean)-1]['SubRegion'])
+print(df_tahun_clean.iloc[len(df_tahun_clean)-1]['produksi'])
+col5b.markdown(df_tahun_clean.iloc[len(df_tahun_clean)-1]['produksi'])
+
 print("\nNegara dengan Produksi Minyak Sama Dengan Nol pada Tahun " + str(T2) + ":")
-col5b.markdown("\n**Negara dengan Produksi Minyak Sama Dengan Nol pada Tahun** " + str(T2) + "**:**")
+col5b.markdown("**Negara dengan Produksi Minyak Sama Dengan Nol pada Tahun** " + str(T2) + "**:**")
+namanol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['NamaNegara']
 negaranol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['kode_negara']
+regionnol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['Region']
+subregionnol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['SubRegion']
 produksinol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['produksi']
-dfnol2 = pd.DataFrame(list(zip(negaranol2, produksinol2)), columns=['kode_negara', 'produksi'])
+dfnol2 = pd.DataFrame(list(zip(namanol2, negaranol2, regionnol2, subregionnol2, produksinol2)), columns=['NamaNegara', 'KodeNegara', 'Region', 'SubRegion', 'produksi'])
 col5b.dataframe(dfnol2)
 ############### fifth column ###############
