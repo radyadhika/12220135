@@ -79,7 +79,9 @@ col1a, col1b = st.columns(2)
 ############### first column ###############
 col1a.subheader("Tabel Representasi Data Mentah")
 n_tampil = col1b.number_input("Jumlah Baris dalam Tabel yang Ingin Ditampilkan", min_value=1, max_value=None, value=10)
-st.write("\n")
+col1b.write("\n")
+col1b.write("\n")
+col1b.write("\n")
 S = col1b.selectbox("Filter", list(df_csv_clean.columns))
 col1a.dataframe((df_csv_clean.head(n_tampil)).sort_values(by=S, ascending=False))
 ############### first column ###############
