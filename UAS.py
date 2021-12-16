@@ -63,8 +63,10 @@ df_json_clean = pd.DataFrame(list(zip(listnama, listkodecsv, listkodenegara, lis
 
 ############### title ###############
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command called
-st.title("UAS 12220135")
-st.markdown("*Sumber data berasal dari [Jakarta Open Data](https://data.jakarta.go.id/dataset/data-jumlah-penumpang-trans-jakarta-tahun-2019-kpi)*")
+_, col2, _ = st.beta_columns([1, 2, 1])
+with col2:
+    st.title("UAS 12220135")
+st.markdown("*Tugas Besar Pemrogaman Komputer Teknik Perminyakan 2020*")
 ############### title ###############)
 
 ############### sidebar ###############
