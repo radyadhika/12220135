@@ -63,15 +63,15 @@ df_json_clean = pd.DataFrame(list(zip(listnama, listkodecsv, listkodenegara, lis
 
 ############### title ###############
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command called
-_, col2, _ = st.columns([2, 2, 1])
+_, col2, _ = st.columns([1, 2, 1])
 with col2:
-    st.title("UAS 12220135")
-st.markdown("*Tugas Besar Pemrogaman Komputer Teknik Perminyakan 2020*")
+    st.title("Informasi Seputar Data Produksi Minyak Mentah dari Berbagai Negara di Seluruh Dunia")
+st.markdown("*Aplikasi ini dibuat oleh Radya Evandhika Novaldi/12220135/Teknik Perminyakan Institut Teknologi Bandung*")
 ############### title ###############)
 
 ############### sidebar ###############
 st.sidebar.title("Pengaturan")
-st.sidebar.subheader("Pengaturan Konfigurasi Grafik")
+st.sidebar.subheader("Konfigurasi Grafik")
 width = st.sidebar.slider("Lebar Grafik", 1, 25, 13)
 height = st.sidebar.slider("Tinggi Grafik", 1, 25, 5)
 ############### sidebar ###############
@@ -79,8 +79,8 @@ height = st.sidebar.slider("Tinggi Grafik", 1, 25, 5)
 col1a, col1b = st.columns(2)
 
 ############### first column ###############
-col1a.subheader("Tabel Representasi Data")
-n_tampil = col1b.number_input("Jumlah baris dalam tabel yang ditampilkan", min_value=1, max_value=None, value=10)
+col1a.subheader("Tabel Representasi Data Mentah")
+n_tampil = col1b.number_input("Jumlah Baris dalam Tabel yang Ingin Ditampilkan", min_value=1, max_value=None, value=10)
 col1a.dataframe(df_csv_clean.head(n_tampil))
 ############### first column ###############
 
@@ -118,7 +118,7 @@ plt.grid(axis='y')
 st.pyplot(fig)
 ############### second column ###############
 
-st.write("--")
+st.write("\n")
 col3opt1, col3opt2 = st.columns(2)
 
 ############### third column ###############
@@ -144,7 +144,7 @@ plt.grid(axis='y')
 st.pyplot(fig)
 ############### third column ###############
 
-st.write("--")
+st.write("\n")
 
 ############### fourth column ###############
 st.subheader("Grafik Kumulatif")
@@ -176,7 +176,7 @@ plt.grid(axis='y')
 st.pyplot(fig)
 ############### fourth column ###############
 
-st.write("--")
+st.write("\n")
 col5a, col5b = st.columns(2)
 
 ############### fifth column ###############
