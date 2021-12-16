@@ -196,16 +196,10 @@ col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['kode_negara'])
 print(df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif'])
 col5a.markdown(df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif'])
 
-df_summary_bersih = pd.DataFrame(list(zip(listkodecsv, jumlah_produksi_kumulatif)), columns=['kode_negara', 'produksi_kumulatif']).sort_values(by=['produksi_kumulatif'], ascending=False)
-df_summary_bersih = df_summary_bersih.set_index("kode_negara")
-df_summary_bersih.head()
-df_summary_bersih = df_summary_bersih.drop(["WLD","G20","OECD","OEU","EU28"])
-df_summary_bersih.reset_index(drop=False, inplace=True)
-
 print("\nNegara dengan Produksi Kumulatif Sama Dengan Nol:")
 col5a.markdown("\n**Negara dengan Produksi Kumulatif Sama Dengan Nol:**")
-negaranol = df_summary_bersih.iloc[len(df_summary_clean):len(dfsummary)]['kode_negara']
-produksinol = df_summary_bersih.iloc[len(df_summary_clean):len(dfsummary)]['produksi_kumulatif']
+negaranol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['kode_negara']
+produksinol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['produksi_kumulatif']
 dfnol = pd.DataFrame(list(zip(negaranol, produksinol)), columns=['kode_negara', 'produksi_kumulatif'])
 col5a.dataframe(dfnol)
 
