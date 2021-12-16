@@ -24,6 +24,7 @@ df_csv_clean.reset_index(drop=False, inplace=True)
 
 
 listkodecsv = []
+listkodecsvbanyak = []
 listsampah = []
 
 for i in list(df['kode_negara']):
@@ -34,6 +35,10 @@ namajson = "kode_negara_lengkap.json"
 openjson = open(namajson)
 loadjson = json.load(openjson)
 df_json = pd.read_json(namajson)
+
+for i in list(df_csv_clean['kode_negara']) :
+    if i in list(df_json['alpha-3']) :
+        listkodecsvbanyak.append(i)
 
 list_kode_bersih = []
 
