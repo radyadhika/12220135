@@ -116,6 +116,7 @@ plt.grid(axis='y')
 st.pyplot(fig)
 ############### second column ###############
 
+st.write("--")
 col3opt1, col3opt2 = st.columns(2)
 
 ############### third column ###############
@@ -140,6 +141,8 @@ plt.grid(axis='y')
 
 st.pyplot(fig)
 ############### third column ###############
+
+ st.write("--")
 
 ############### fourth column ###############
 st.subheader("Grafik Kumulatif")
@@ -171,6 +174,7 @@ plt.grid(axis='y')
 st.pyplot(fig)
 ############### fourth column ###############
 
+st.write("--")
 col5a, col5b = st.columns(2)
 
 ############### fifth column ###############
