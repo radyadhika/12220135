@@ -63,9 +63,7 @@ df_json_clean = pd.DataFrame(list(zip(listnama, listkodecsv, listkodenegara, lis
 
 ############### title ###############
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command called
-_, col2, _ = st.columns([1, 2, 1])
-with col2:
-    st.title("Informasi Seputar Data Produksi Minyak Mentah dari Berbagai Negara di Seluruh Dunia")
+st.title("Informasi Seputar Data Produksi Minyak Mentah dari Berbagai Negara di Seluruh Dunia")
 st.markdown("*Aplikasi ini dibuat oleh Radya Evandhika Novaldi/12220135/Teknik Perminyakan Institut Teknologi Bandung*")
 ############### title ###############)
 
@@ -122,7 +120,7 @@ st.write("\n")
 col3opt1, col3opt2 = st.columns(2)
 
 ############### third column ###############
-st.subheader("Total penumpang perbulan")
+st.subheader("Grafik Jumlah Produksi Minyak Terbesar Pada Tahun Tertentu")
 
 T = col3opt1.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990)
 B1 = col3opt2.number_input("Banyak Negara", min_value=1, max_value=None, value=10)
@@ -147,7 +145,7 @@ st.pyplot(fig)
 st.write("\n")
 
 ############### fourth column ###############
-st.subheader("Grafik Kumulatif")
+st.subheader("Grafik Jumlah Produksi Minyak Terbesar Secara Kumulatif Keseluruhan Tahun")
 
 B2 = st.number_input("Banyak Negara", min_value=1, max_value=None, value=10, key=int)
 
@@ -180,7 +178,7 @@ st.write("\n")
 col5a, col5b = st.columns(2)
 
 ############### fifth column ###############
-col5a.subheader("Summary Tahun")
+col5a.subheader("Summary Kumulatif")
 dfsummary = pd.DataFrame(list(zip(listkodecsv, jumlah_produksi_kumulatif)), columns=['kode_negara', 'produksi_kumulatif'])
 
 dfsummary['NamaNegara'] = list(df_json_clean['NamaNegara'])
@@ -231,7 +229,7 @@ produksinol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['produksi_kum
 dfnol = pd.DataFrame(list(zip(namanol, negaranol, regionnol, subregionnol, produksinol)), columns=['NamaNegara', 'KodeNegara', 'Region', 'SubRegion', 'produksi_kumulatif'])
 col5a.dataframe(dfnol)
 
-col5b.subheader("Summary Kumulatif")
+col5b.subheader("Summary Tahun Tertentu")
 T2 = col5b.number_input("Tahun Berapa", min_value=1970, max_value=2015, value=1990, key=int)
 dftahun2 = df_csv_clean.loc[df_csv_clean['tahun'] == T2].sort_values(by=['produksi'], ascending=False)
 df_tahun_clean = dftahun2.set_index("produksi")
