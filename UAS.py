@@ -63,7 +63,7 @@ df_json_clean = pd.DataFrame(list(zip(listnama, listkodecsv, listkodenegara, lis
 
 ############### title ###############
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command called
-_, col2, _ = st.beta_columns([1, 2, 1])
+_, col2, _ = st.columns([2, 2, 1])
 with col2:
     st.title("UAS 12220135")
 st.markdown("*Tugas Besar Pemrogaman Komputer Teknik Perminyakan 2020*")
