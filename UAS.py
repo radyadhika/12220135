@@ -117,12 +117,9 @@ for i in range(len(listnama)):
         region = listregion[i]
         subregion = listsubregion[i]
 
-# Membuat list baru untuk menampung data produksi negara dan tahunnya
 grafik1_tahun = []
 grafik1_produksi = []
 
-# Mengambil data produksi dan tahun berdasarkan negara yang dipilih pada
-# option dan memasukkannya ke list yang telah dibuat
 for i in range(len(list(df_csv_clean['kode_negara']))):
     if kodenegarahuruf == list(df_csv_clean['kode_negara'])[i]:
         grafik1_tahun.append(list(df_csv_clean['tahun'])[i])
@@ -174,13 +171,11 @@ st.subheader("Informasi Produksi Minyak Terbesar Secara Kumulatif Keseluruhan Ta
 B2 = st.number_input("Banyak Negara", min_value=1, max_value=None, value=10, key=int)
 
 jumlah_produksi_kumulatif = []
-# Menjumlahkan produksi minyak tiap negara dan memasukkannya ke list_sum
+
 for i in listkodecsv:
     a = df_csv_clean.loc[df_csv_clean['kode_negara'] == i, 'produksi'].sum()
     jumlah_produksi_kumulatif.append(a)
 
-# Membuat dataframe baru dan diurutkan berdasarkan produksi kumulatif
-# minyak terbesar
 df3 = pd.DataFrame(list(zip(listkodecsv, jumlah_produksi_kumulatif)), columns=['kode_negara', 'produksi_kumulatif']).sort_values(by=['produksi_kumulatif'], ascending=False)
 df3 = df3 [:B2]
 
