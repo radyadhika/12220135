@@ -235,6 +235,7 @@ col5a.markdown("Region: " + df_summary_clean.iloc[0]['Region'])
 col5a.markdown("Sub-region: " + df_summary_clean.iloc[0]['Sub-region'])
 col5a.markdown("Produksi Kumulatif: " + str(df_summary_clean.iloc[0]['produksi_kumulatif']) + " TMT")
 
+col5a.text("")
 col5a.markdown("\n**Negara dengan Produksi Kumulatif Terkecil:**")
 col5a.markdown("Nama Negara: " + df_summary_clean.iloc[len(df_summary_clean)-1]['NamaNegara'])
 col5a.markdown("Kode Negara: " + df_summary_clean.iloc[len(df_summary_clean)-1]['KodeNegara'])
@@ -242,7 +243,7 @@ col5a.markdown("Region: " + df_summary_clean.iloc[len(df_summary_clean)-1]['Regi
 col5a.markdown("Sub-region: " + df_summary_clean.iloc[len(df_summary_clean)-1]['Sub-region'])
 col5a.markdown("Produksi Kumulatif: " + str(df_summary_clean.iloc[len(df_summary_clean)-1]['produksi_kumulatif']) + " TMT")
 
-
+col5a.text("")
 col5a.markdown("\n**Negara dengan Produksi Kumulatif Sama Dengan Nol:**")
 namanol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['NamaNegara']
 negaranol = dfsummary.iloc[len(df_summary_clean):len(dfsummary)]['KodeNegara']
@@ -271,6 +272,7 @@ col5b.markdown("Region: " + df_tahun_clean.iloc[0]['Region'])
 col5b.markdown("Sub-Region: " + df_tahun_clean.iloc[0]['Sub-Region'])
 col5b.markdown("Produksi: " + str(df_tahun_clean.iloc[0]['produksi']) + " TMT")
 
+col5b.text("")
 col5b.markdown("\n**Negara dengan Produksi Minyak Terkecil pada Tahun** " + str(T2) + "**:**")
 col5b.markdown("Nama Negara: " + df_tahun_clean.iloc[len(df_tahun_clean)-1]['Nama_Negara'])
 col5b.markdown("Kode Negara: " + df_tahun_clean.iloc[len(df_tahun_clean)-1]['kode_negara'])
@@ -278,6 +280,7 @@ col5b.markdown("Region: " + df_tahun_clean.iloc[len(df_tahun_clean)-1]['Region']
 col5b.markdown("Sub-Region: " + df_tahun_clean.iloc[len(df_tahun_clean)-1]['Sub-Region'])
 col5b.markdown("Produksi: " + str(df_tahun_clean.iloc[len(df_tahun_clean)-1]['produksi']) + " TMT")
 
+col5b.text("")
 col5b.markdown("\n**Negara dengan Produksi Minyak Sama Dengan Nol pada Tahun** " + str(T2) + "**:**")
 namanol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['Nama_Negara']
 negaranol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['kode_negara']
@@ -287,4 +290,3 @@ produksinol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['produksi']
 dfnol2 = pd.DataFrame(list(zip(namanol2, negaranol2, regionnol2, subregionnol2, produksinol2)), columns=['Nama_Negara', 'Kode_Negara', 'Region', 'Sub-Region', 'Produksi'])
 col5b.dataframe(dfnol2)
 ############### fifth column ###############
-
