@@ -290,3 +290,12 @@ produksinol2 = dftahun2.iloc[len(df_tahun_clean):len(dftahun2)]['produksi']
 dfnol2 = pd.DataFrame(list(zip(namanol2, negaranol2, regionnol2, subregionnol2, produksinol2)), columns=['Nama_Negara', 'Kode_Negara', 'Region', 'Sub-Region', 'Produksi'])
 col5b.dataframe(dfnol2)
 ############### fifth column ###############
+
+hide_streamlit_style = """
+<style>
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+</style>
+
+"""
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
