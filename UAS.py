@@ -138,4 +138,4 @@ else:
 
 col5b.markdown(f"\n**Negara dengan Produksi Minyak Sama Dengan Nol pada Tahun {T2}:**")
 dftahun2_zero = dftahun2[dftahun2['produksi'] == 0]
-col5b.dataframe(dftahun2_zero[['Nama_Negara', 'kode_negara', 'Region', 'Sub-Region', 'produksi']]
+col5b.dataframe(dftahun2_zero[['Nama_Negara', 'kode_negara', 'Region', 'Sub-Region', 'produksi']])
